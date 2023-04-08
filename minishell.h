@@ -3,6 +3,9 @@
 
 # include <stdio.h>
 # include <stdlib.h>
+# include <unistd.h>
+# include <string.h>
+# include <errno.h>
 # include <readline/readline.h>
 # include <readline/history.h>
 
@@ -36,5 +39,10 @@ void	ft_uname(char *input, t_list *list);
 void	ft_untype(char *input, t_list *list);
 void	ft_env_check(char *input, t_list	*list);
 char	*ft_restrlen(t_list *list, char *str, int *j);
+/**/
+void	ft_builtins(char *input, t_list *list);
+void	ft_echo(char *input, t_list *list);
+void	ft_pwd(void);
+void	ft_cd(t_list *list);
 
 #endif

@@ -16,7 +16,7 @@ void		ft_str_rebuild(t_list *list, int i)
 	}
 }
 
-void		ft_env_check(char *input, t_list *list)		//(quates değeri ' ' olduğu zamanda çalışmalı -> echo $USER)
+void	ft_env_check(char *input, t_list *list)		//(quates değeri ' ' olduğu zamanda çalışmalı -> echo $USER)
 {
 	int	i;
 
@@ -28,10 +28,10 @@ void		ft_env_check(char *input, t_list *list)		//(quates değeri ' ' olduğu zam
 	}
 }
 
-void		ft_str_base(t_list *list, char *input, int *index, int *now)
+void	ft_str_base(t_list *list, char *input, int *index, int *now)
 {
-	int			i;
-	char		c;
+	int		i;
+	char	c;
 
 	i = 0;
 	c = ' ';
@@ -66,7 +66,14 @@ void	ft_uname(char *input, t_list *list)
 		if (input[i] != ' ' && input[i])
 			ft_str_base(list, input, &i, &now);
 	}
-	list[now].quates = '\0';
+	printf("NOW %d\n",now);
+	printf("%s\n", list[0].value);
+	list[now].quates = 'x';
+	printf("%s\n", list[0].value);
+	list[now].quates = 'a';
+	printf("%s\n", list[0].value);
+	list[now].quates = 'b';
+	printf("%s\n", list[0].value);
 	list[now].value = NULL;
 	list[now].type = END;
 }
@@ -83,7 +90,7 @@ void	ft_untype(char *input, t_list *list)
 		 	list[i].type = PIPE;
 		else if (i - 1 == -1)
 			list[i].type = COMMAND;
-		else if (ft_opr_which(list[i - 1].value[0]) == 1 
+		else if (ft_opr_which(list[i - 1].value[0]) == 1
 			&& ft_opr_which(list[i].value[0]) != 1)
 		{
 			list[i].type = COMMAND;
@@ -100,7 +107,7 @@ void	ft_untype(char *input, t_list *list)
 			else if (list[i - 1].value[1] == '>')
 				list[i - 1].type = D_OUTPUT_R;
 		}
-		else if ((list[i - 1].type == FILE_NAME && list[i - 3].type != COMMAND) 
+		else if ((list[i - 1].type == FILE_NAME && list[i - 3].type != COMMAND)
 					|| i - 3 == -1)
 			list[i].type = COMMAND;
 		else
@@ -108,7 +115,7 @@ void	ft_untype(char *input, t_list *list)
 			list[i].type = ARG;
 			j = -1;
 			while (list[i].value[++j])
-				if (list[i].value[j] == '$' && list[i].quates != 39)
+				if (list[i].value[j] == '$' && (list[i].quates = ' ' || list[i].quates == '"'))
 					list[i].type = ENV;
 		}
 	}
