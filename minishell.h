@@ -29,6 +29,7 @@ typedef struct s_list
 	char			*value;
 	char			quates;
 	char			**env;
+	char			**export;
 }			t_list;
 
 int		ft_opr_pair(char *input);
@@ -40,9 +41,11 @@ void	ft_untype(char *input, t_list *list);
 void	ft_env_check(char *input, t_list	*list);
 char	*ft_restrlen(t_list *list, char *str, int *j);
 /**/
+char	*ft_piece(char *env);
 void	ft_builtins(char *input, t_list *list);
 void	ft_echo(char *input, t_list *list);
 void	ft_pwd(void);
 void	ft_cd(t_list *list);
+void	ft_export(t_list *list);
 
 #endif

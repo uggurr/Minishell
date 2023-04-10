@@ -1,8 +1,8 @@
 #include "../minishell.h"
 
-int arg_count(t_list *list)
+int	arg_count(t_list *list)
 {
-	int i;
+	int	i;
 
 	i = 0;
 
@@ -17,7 +17,7 @@ int arg_count(t_list *list)
 
 void	ft_cd(t_list *list)
 {
-	char *str;
+	char	*str;
 
 	if (arg_count(list) == 1)
 	{
@@ -25,7 +25,10 @@ void	ft_cd(t_list *list)
 		return ;
 	}
 	if (arg_count(list) == -1)
+	{
+		printf("env HOME coment\n");
 		return ;
+	}
 	if (chdir(list[1].value) == -1)
 	{
 		str = strerror(errno);

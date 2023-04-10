@@ -13,7 +13,7 @@ int	main(int argc, char **argv, char **env)
 		add_history(input);
 		if (ft_opr_pair(input))
 			return (0);
-		list = malloc(sizeof(t_list) * ft_str_shred(input) + 1);
+		list = malloc(sizeof(t_list) * (ft_str_shred(input) + 1));
 		list->env = env;
 		ft_uname(input, list);
 		ft_untype(input, list);

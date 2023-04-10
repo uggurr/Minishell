@@ -66,16 +66,10 @@ void	ft_uname(char *input, t_list *list)
 		if (input[i] != ' ' && input[i])
 			ft_str_base(list, input, &i, &now);
 	}
-	printf("NOW %d\n",now);
-	printf("%s\n", list[0].value);
-	list[now].quates = 'x';
-	printf("%s\n", list[0].value);
-	list[now].quates = 'a';
-	printf("%s\n", list[0].value);
-	list[now].quates = 'b';
-	printf("%s\n", list[0].value);
+	list[now].quates = '\0';
 	list[now].value = NULL;
 	list[now].type = END;
+
 }
 
 void	ft_untype(char *input, t_list *list)
@@ -108,7 +102,7 @@ void	ft_untype(char *input, t_list *list)
 				list[i - 1].type = D_OUTPUT_R;
 		}
 		else if ((list[i - 1].type == FILE_NAME && list[i - 3].type != COMMAND)
-					|| i - 3 == -1)
+				|| i - 3 == -1)
 			list[i].type = COMMAND;
 		else
 		{
