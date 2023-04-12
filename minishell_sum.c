@@ -101,10 +101,10 @@ char	*ft_how_far(char *str, int *j)
 	counter = 0;
 	while (str[*j])
 	{
-		if (((str[*j] >= 32 && str[*j] <= 47) 
+		if (((str[*j] >= 32 && str[*j] <= 47)
 			|| (str[*j] >= 58 && str[*j] <= 64)
 			|| (str[*j] >= 91 && str[*j] <= 96)
-			|| (str[*j] >= 123 && str[*j] <= 126)) 
+			|| (str[*j] >= 123 && str[*j] <= 126))
 			&& str[*j])
 			break;
 		value++;

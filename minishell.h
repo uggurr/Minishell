@@ -1,6 +1,7 @@
 #ifndef MINISHELL_H
 # define MINISHELL_H
 
+# include "libft/libft.h"
 # include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
@@ -47,5 +48,7 @@ void	ft_echo(char *input, t_list *list);
 void	ft_pwd(void);
 void	ft_cd(t_list *list);
 void	ft_export(t_list *list);
+int		arg_count(t_list *list);
+void	init_env(t_list *list);
 
 #endif

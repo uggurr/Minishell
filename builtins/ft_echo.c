@@ -9,7 +9,7 @@ void	ft_echo(char *input, t_list *list)
 	i = 1;
 	while (i < ft_str_shred(input))
 	{
-		if (list[i].value[1] == 'n' || list[i].value[0] == '-')
+		if (list[i].value[1] == 'n' || list[i].value[0] == '-') //Düzeltilecek
 		{
 			flag = 1;
 			i++;
